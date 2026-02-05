@@ -26,6 +26,12 @@
             align-items: center;
             justify-content: center;
             color: #ffffff;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        body.fade-out {
+            opacity: 0;
         }
 
         .container {
@@ -98,5 +104,16 @@
         
         <a href="https://discord.gg/TNDp5EE4vv" class="join-btn">Join Discord</a>
     </div>
+
+    <script>
+        document.querySelector('.join-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.href;
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = href;
+            }, 400);
+        });
+    </script>
 </body>
 </html>
